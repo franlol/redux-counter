@@ -18,8 +18,8 @@ const Menu = props => {
 const mapDispatchToProps = dispatch => {
     return {
         onIncrement: () => dispatch({ type: 'COUNTER_INC', payload: 1 }),
-        onAdd: (val) => dispatch({ type: 'COUNTER_ADD', payload: val }),
-        onSub: (val) => dispatch({ type: 'COUNTER_SUB', payload: val }),
+        onAdd: (val) => dispatch({ type: 'COUNTER_INC', payload: val }),
+        onSub: (val) => dispatch({ type: 'COUNTER_DEC', payload: val }),
         onDecrement: () => dispatch({ type: 'COUNTER_DEC', payload: 1 }),
     }
 };
