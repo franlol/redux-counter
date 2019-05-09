@@ -5,7 +5,6 @@ const initialState = {
 const counterReducer = (state = initialState, action) => {
     const { type, payload } = action;
 
-    // That reducer can be reused. I know.
     switch (type) {
         case 'COUNTER_INC':
             return {
