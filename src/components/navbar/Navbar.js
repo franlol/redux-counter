@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './navbar.css';
 
@@ -12,4 +13,10 @@ const Navbar = props => {
 
 }
 
-export default Navbar;
+const mapStateToProps = state => {
+    return {
+        counter: state.counter,
+    }
+};
+
+export default connect(mapStateToProps)(Navbar);
