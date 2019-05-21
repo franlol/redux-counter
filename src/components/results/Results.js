@@ -6,7 +6,6 @@ import './results.css';
 import * as actionTypes from '../../store/actions';
 
 const Results = props => {
-
     const getResults = () => {
         return props.results.map(result => <li key={result.id}>{result.counter} <button onClick={() => props.deleteResult(result.id)}>Del</button></li>);
     }
@@ -14,7 +13,10 @@ const Results = props => {
     return (
         <div className="results">
             <ul>
-                {getResults()}
+                {props.results.length > 0 ?
+                    getResults()
+                    :
+                    <p>No results..</p>}
             </ul>
         </div>
     );
@@ -22,7 +24,7 @@ const Results = props => {
 
 const mapStateToProps = state => {
     return {
-        results: state.results,
+        results: state.results.results,
     }
 }
 

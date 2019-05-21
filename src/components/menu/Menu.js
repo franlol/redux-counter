@@ -14,11 +14,17 @@ const Menu = props => {
             <button onClick={() => props.onAdd(10)}>Add 10</button>
             <button onClick={() => props.onSub(10)}>Sub 10</button>
             <button onClick={props.onDecrement}>Decrement</button>
-            <button onClick={props.resultAdd}>Save</button>
+            <button onClick={() => props.resultAdd(props.counter)}>Save</button>
         </section>
     );
 
 };
+
+const mapStateToProps = state => {
+    return {
+        counter: state.counter.counter,
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -26,8 +32,8 @@ const mapDispatchToProps = dispatch => {
         onAdd: (val) => dispatch({ type: actionTypes.COUNTER_INC, payload: val }),
         onSub: (val) => dispatch({ type: actionTypes.COUNTER_DEC, payload: val }),
         onDecrement: () => dispatch({ type: actionTypes.COUNTER_DEC, payload: 1 }),
-        resultAdd: () => dispatch({ type: actionTypes.RESULTS_ADD, payload: uuid() }),
+        resultAdd: (counter) => dispatch({ type: actionTypes.RESULTS_ADD, payload: { uuid: uuid(), counter } }),
     }
 };
 
-export default connect(null, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

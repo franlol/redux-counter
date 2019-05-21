@@ -2,7 +2,6 @@ import * as actionTypes from '../actions';
 
 const initialState = {
     counter: 5,
-    results: []
 }
 
 const counterReducer = (state = initialState, action) => {
@@ -21,18 +20,18 @@ const counterReducer = (state = initialState, action) => {
                 counter: state.counter - payload,
             }
 
-        case actionTypes.RESULTS_ADD:
-            return {
-                ...state,
-                results: [...state.results, { id: payload, counter: state.counter }],
-            }
+        // case actionTypes.RESULTS_ADD:
+        //     return {
+        //         ...state,
+        //         results: [...state.results, { id: payload, counter: state.counter }],
+        //     }
 
-        case actionTypes.RESULT_DELETE:
-            return {
-                ...state,
-                results: state.results.filter(result => result.id !== payload)
-            }
-
+        // case actionTypes.RESULT_DELETE:
+        //     return {
+        //         ...state,
+        //         results: state.results.filter(result => result.id !== payload)
+        //     }
+             
         default:
             return state;
     }
